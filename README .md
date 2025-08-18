@@ -11,7 +11,7 @@ A minimal portfolio-ready project to showcase DevOps skills: containerization, C
 
 ## ⚙️ Run locally
 ```bash
-git clone <your-fork-url> fullstack-devops-app
+git clone https://github.com/Misbah-Ashiq/fullstack-devops-app
 cd fullstack-devops-app
 cp .env.example .env
 docker compose up -d --build
