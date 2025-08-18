@@ -17,7 +17,7 @@ cp .env.example .env
 docker compose up -d --build
 ```
 Then open:
-- Frontend: http://localhost:5173
+- Frontend: http://localhost:3000
 - Backend health: http://localhost:5000/api/health
 - MySQL: localhost:3306
 
@@ -55,12 +55,7 @@ curl -X POST http://localhost:5000/api/signin   -H "Content-Type: application/js
 
 Tip: You can deploy these images to any server and run them with a small compose file that pulls the images.
 
-## 🧭 Architecture (Mermaid)
-```mermaid
-flowchart LR
-  A[React + Nginx (5173)] -->|HTTP /api| B[Flask API (5000)]
-  B --> C[(MySQL 8)]
-```
+## 🧭 Architecture 
 
 ## 🧹 Cleanup
 ```bash
