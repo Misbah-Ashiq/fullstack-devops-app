@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   backend:
-    image: ahmadali616/fullstack-backend:latest
+    image: misbahashiq/fullstack-backend
     environment:
       DB_HOST: db
       DB_USER: ${DB_USER:-appuser}
@@ -31,11 +31,11 @@ services:
     restart: unless-stopped
 
   frontend:
-    image: ahmadali616/fullstack-frontend:latest
+    image: misbahashiq/fullstack-frontend
     depends_on:
       - backend
     ports:
-      - "5173:80"
+      - "3000:80"
     restart: unless-stopped
 
 volumes:
