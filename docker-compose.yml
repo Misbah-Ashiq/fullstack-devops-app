@@ -1,7 +1,6 @@
 services:
   db:
     image: mysql:8.0
-    container_name: app_db
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
       MYSQL_DATABASE: ${DB_NAME:-appdb}
@@ -9,20 +8,16 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD:-apppass}
     volumes:
       - db_data:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    ports:
-      - "3306:3306"
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 5s
       retries: 10
+    restart: unless-stopped
 
   backend:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
-    container_name: app_backend
+    image: ahmadali616/fullstack-backend:latest
     environment:
       DB_HOST: db
       DB_USER: ${DB_USER:-appuser}
@@ -33,16 +28,16 @@ services:
         condition: service_healthy
     ports:
       - "5000:5000"
+    restart: unless-stopped
 
   frontend:
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-    container_name: app_frontend
+    image: ahmadali616/fullstack-frontend:latest
     depends_on:
       - backend
     ports:
       - "5173:80"
+    restart: unless-stopped
 
 volumes:
   db_data:
+
