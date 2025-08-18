@@ -47,11 +47,10 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             if [ ! -d "fullstack-devops-app" ]; then
-              git clone https://github.com/Misbah-Ashiq/fullstack-devops-app.git
+             git clone https://github.com/Misbah-Ashiq/fullstack-devops-app.git
             fi
             cd fullstack-devops-app
             git reset --hard
             git pull origin main
-            docker compose pull
-            docker compose up -d --remove-orphans
-
+            sudo docker compose pull
+            sudo docker compose up -d --remove-orphans
