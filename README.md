@@ -48,19 +48,13 @@ git clone https://github.com/Misbah-Ashiq/fullstack-devops-app.git
 cd fullstack-devops-app
 ```
 
-2. Copy `.env.example` to `.env` and set your environment variables:
-
-```bash
-cp .env.example .env
-```
-
-3. Build and start the services:
+2. Build and start the services:
 
 ```bash
 docker compose up -d --build
 ```
 
-4. Access the application:
+3. Access the application:
 
 - **Frontend:** [http://localhost:5173](http://localhost:5173)  
 - **Backend API:** [http://localhost:5000](http://localhost:5000)
@@ -116,8 +110,9 @@ This project features a fully automated **CI/CD pipeline** using **GitHub Action
 
 **Misbah Ashiq**  
 - GitHub: [https://github.com/Misbah-Ashiq](https://github.com/Misbah-Ashiq)  
-- LinkedIn: [Your LinkedIn URL]  
-- Upwork/Fiverr: [Your Profile URL]
+- LinkedIn: [www.linkedin.com/in/misbah-ashiq-14a0aa356](www.linkedin.com/in/misbah-ashiq-14a0aa356) 
+- Upwork/Fiverr: [https://www.fiverr.com/s/bdbaKok](https://www.fiverr.com/s/bdbaKok)
+- Upwork: [https://www.upwork.com/freelancers/~0174d196bc738ae9ea?mp_source=share](https://www.upwork.com/freelancers/~0174d196bc738ae9ea?mp_source=share)
 
 ---
 
