@@ -56,7 +56,7 @@ docker compose up -d --build
 
 3. Access the application:
 
-- **Frontend:** [http://localhost:5173](http://localhost:5173)  
+- **Frontend:** [http://localhost:5173](http://localhost:3000)  
 - **Backend API:** [http://localhost:5000](http://localhost:5000)
 
 ---
@@ -116,6 +116,48 @@ This project features a fully automated **CI/CD pipeline** using **GitHub Action
 
 ---
 
-## 📄 License
+```mermaid
+flowchart TB
+    subgraph Frontend[Frontend Layer - React App]
+        A[Browser / User Interface]
+    end
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+    subgraph Backend[Backend Layer - Flask API]
+        B[Flask API Container]
+        C[Business Logic & Auth]
+    end
+
+    subgraph Database[Database Layer - MySQL]
+        D[MySQL Container]
+    end
+
+    subgraph CICD[CI/CD Pipeline]
+        E[GitHub Repo]
+        F[GitHub Actions]
+        G[Docker Hub]
+        H[Deployment Server / EKS]
+    end
+
+    %% Frontend to Backend
+    A -->|HTTP/HTTPS Requests| B
+    B --> C
+    C -->|SQL Queries| D
+
+    %% CI/CD Flow
+    E --> F
+    F --> G
+    G --> H
+    H --> B
+    H --> D
+
+    %% Styling
+    classDef frontend fill:#d0ebff,stroke:#1c7ed6,stroke-width:2px;
+    classDef backend fill:#ffd8a8,stroke:#f08c00,stroke-width:2px;
+    classDef database fill:#d3f9d8,stroke:#37b24d,stroke-width:2px;
+    classDef cicd fill:#f5d0fe,stroke:#9b36b0,stroke-width:2px;
+
+    class A frontend;
+    class B,C backend;
+    class D database;
+    class E,F,G,H cicd;
+```
